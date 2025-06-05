@@ -1,3 +1,4 @@
+# default.conf - Nginx con métricas básicas
 server {
     listen 80;
     server_name localhost;
@@ -11,15 +12,6 @@ server {
     location ~* \.(css|js)$ {
         expires 1h;
         add_header Cache-Control "public, no-transform";
-    }
-
-    location /api/ {
-        proxy_pass http://backend:3000/;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
     }
 
     location /health {
@@ -47,4 +39,3 @@ nginx_connections_active 1
 }';
     }
 }
-

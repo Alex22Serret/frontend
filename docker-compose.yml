@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: roxsross12/devops-items:1.0.0-frontend
+    container_name: frontend
+    restart: unless-stopped
+    environment:
+      API_BASE_URL: http://backend:3000
+    ports:
+      - "80:80"
+    networks:
+      - roxs-app-network
+
+networks:
+  roxs-app-network:
+    external: true
