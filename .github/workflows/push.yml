@@ -24,4 +24,4 @@ jobs:
           push: true
           # La etiqueta de la imagen será:
           # ${DOCKER_USERNAME}/${NOMBRE_DEL_REPO_DE_GITHUB}:${SHA_DEL_COMMIT}
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.REPO_NAME }}:${{ github.sha }} 
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.REPO_NAME }}:${{ github.sha }}
